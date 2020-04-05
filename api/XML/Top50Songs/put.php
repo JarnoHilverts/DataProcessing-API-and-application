@@ -8,10 +8,8 @@
   // Get raw posted data
   $data = simplexml_load_file("php://input");
   $xmlpage = file_get_contents('php://input');
-  //print_r($xmlpage);
-
+  //Get xsd to check validation in validate.php
   $xmlSchema = '../XML_JSON_bestanden/Top50CountrySongs_xsd.xsd';
-  //var_dump($xml);
   if (validate_xml($xmlpage, $xmlSchema) == false)
   {
       echo "De huide XML is niet valid";

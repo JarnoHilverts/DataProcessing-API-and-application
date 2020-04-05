@@ -5,12 +5,11 @@
   header('Access-Control-Allow-Methods: POST');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-  // Get raw posted data
+  //Get raw data input
   $data = simplexml_load_file("php://input");
   $xmlpage = file_get_contents('php://input');
-
+  //Get xsd to check validation in validate.php
   $xmlSchema = '../XML_JSON_bestanden/Suicide_template_xsd.xsd';
-  //var_dump($xml);
   if (validate_xml($xmlpage, $xmlSchema) == false)
   {
       echo "De huide XML is niet valid";
@@ -22,6 +21,7 @@
     $post->suicides = $data->country[0]->data[0]->suicides;
     $post->population = $data->country[0]->data[0]->population;
 
+    //New DOMdoc to output xml data 
     $doc = new DOMDocument('1');
     $doc->formatOutput = true;
     $root = $doc->createElement('message');

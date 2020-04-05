@@ -1,70 +1,70 @@
 <?php
- header('Access-Control-Allow-Origin: *');
- header('Content-Type: application/json');
+  //Headers
+  header('Access-Control-Allow-Origin: *');
+  header('Content-Type: application/json');
 
-// Get row count
-$num = $result->rowCount();
+  //count results of query for loop through data
+  $num = $result->rowCount();
 
 
-// Check if any posts
-if($num > 0) 
-{
-  $currentCountry= null;
-  $postSTD = new stdClass;
-  $postSTD->countries = new stdClass();
-  $countCountry = 0;
-  $countYears = 0;
-  $newCountry = false;
+  //There is data from query
+  if($num > 0) 
+  {
+    //Set current country to null
+    $currentCountry= null;
+    //Make new stdClass for json output
+    $postSTD = new stdClass;
+    $postSTD->countries = new stdClass();//New stdclass in other stdClass
+    $countCountry = 0;
+    $countYears = 0;
+    $newCountry = false;
 
-    for($i = 0; $i < $num; $i++)
-    {
-      $row = $result->fetch();
-      extract($row);
-      //var_dump($row);
+    //Another loop for auto gen stdClass
+      for($i = 0; $i < $num; $i++)
+      {
+        $row = $result->fetch();
+        extract($row);
         
-      
-      if(isset($currentCountry) AND $currentCountry != $country)
-      {
-        $countCountry++;
-        $countYears = 0;
-        $newCountry = true;
-      }
-      elseif(isset($currentCountry) == $country)
-      {
-        $countYears++;
-        $newCountry = false;
-      }
-      
-      if(!isset($currentCountry) OR $currentCountry != $country)
-      {
-        $postSTD->countries->country[$countCountry]= $postCountry = new stdClass;
-        $postCountry->name = $country;
-        $newCountry = false;
-      
-      }
-  
-      if($newCountry == false)
-      {
-        $postCountry->data[$countYears] = $data = new stdClass;
+        //If there is  an new coutry or is not set var country++ that's because we need to create a new stdClass 
+        //For every new country and that is an arrray we use this value to indicate the array
+        if(isset($currentCountry) AND $currentCountry != $country)
+        {
+          $countCountry++;
+          $countYears = 0;
+          $newCountry = true;
+        }
+        elseif(isset($currentCountry) == $country)
+        {
+          $countYears++;
+          $newCountry = false;
+        }
+        
+        if(!isset($currentCountry) OR $currentCountry != $country)
+        {
+          $postSTD->countries->country[$countCountry]= $postCountry = new stdClass; //New stdClass in countries
+          $postCountry->name = $country;
+          $newCountry = false;
+        }
+        //Make new stdClass in country for the data every year
+        if($newCountry == false)
+        {
+          $postCountry->data[$countYears] = $data = new stdClass;
+        }
+        //put data from every year in stdClass data
+        $data->suicides= $suicides;
+        $data->population= $population;
+        $data->year= $year;
+        $currentCountry = $country;
       }
 
-      $data->suicides= $suicides;
-      $data->population= $population;
-      $data->year= $year;
+    echo json_encode($postSTD);
 
-      $currentCountry = $country;
-      //echo json_encode($postSTD);
-    }
-    //$stmt->close();
-  // Turn to JSON & output
-  //var_dump($posts_arr);
-  echo json_encode($postSTD);
-
-} 
-else 
-{
-  // No Posts
-  echo json_encode(
-    array('message' => 'No Posts Found')
-  );
-}
+  } 
+  else 
+  {
+    // No Posts
+    echo json_encode(
+      array('message' => 'No Posts Found')
+    );
+  }
+?>

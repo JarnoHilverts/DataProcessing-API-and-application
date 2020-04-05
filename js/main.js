@@ -216,6 +216,7 @@ function getTop50Songs(fileType, chosenCountry)
                 for(i = 0; i < rowRank; i++)
                 {
                     var genre = top50songsObj.countries.country[0].data[i].genre;
+                   
                     genreArr.push(
                     genre
                     );
@@ -231,6 +232,7 @@ function getTop50Songs(fileType, chosenCountry)
         function getGenreValue()
         {
             genreArr.sort();
+            console.log(genreArr);
             var currentGenre = null;
             var cnt = 0;
             colorcount = 0;

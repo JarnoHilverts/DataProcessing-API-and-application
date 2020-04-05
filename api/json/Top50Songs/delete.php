@@ -5,8 +5,10 @@
   header('Access-Control-Allow-Methods: DELETE');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
+  // Get raw posted data
   $data = json_decode(file_get_contents("php://input"));
   $jsonpage = file_get_contents('php://input');
+  //Get draft 07 to check validation in validate.php
   $jsonSchema = file_get_contents('../XML_JSON_bestanden/Top50CountrySongs_draft7.json');
   if (validate_json($jsonpage, $jsonSchema) == false)
   { 

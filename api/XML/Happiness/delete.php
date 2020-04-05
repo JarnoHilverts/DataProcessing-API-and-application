@@ -5,10 +5,10 @@
   header('Access-Control-Allow-Methods: DELETE');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-  // Get raw posted data
+  //Get raw data input
   $data = simplexml_load_file("php://input");
   $xmlpage = file_get_contents('php://input');
-  
+  //Get xsd to check validation in validate.php
   $xmlSchema = '../XML_JSON_bestanden/Happines_xsd.xsd';
 
   if (validate_xml($xmlpage, $xmlSchema) == false) 
@@ -17,11 +17,10 @@
   }
   else
   {
-    // Set ID to update
     $post->country = $data->country[0]->name;
     
-
     // Delete post
+    //New DOMdoc to output xml data 
     if($post->delete()) 
     {
       $doc = new DOMDocument('1');

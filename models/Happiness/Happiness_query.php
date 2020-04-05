@@ -1,7 +1,7 @@
 <?php
-Class PostHappiness{
+  Class PostHappiness{
     private $conn;
-
+    //Create public variables
     public $country;
     public $rank;
     public $score;
@@ -16,6 +16,7 @@ Class PostHappiness{
       $this->conn = $db;
     }
 
+    //Read al data from database
     public function read() 
     {
         $query = 'SELECT `country`, `rank`, `score`, `GDP_per_capita` as GDPperCapita, `social_support` as socialSupport, `healthy_Life_expectancy` as healthLifeExperience, `freedom_to_make_life_choices` as freedomToMakeChoices FROM dataprocessing.hapinness';
@@ -27,6 +28,7 @@ Class PostHappiness{
         return $stmt;
     }
 
+    //Read data with given parameters from database
     public function read_single() 
     {
       //check welke values zijn gezet bij de URL
@@ -49,15 +51,14 @@ Class PostHappiness{
       }
     }
 
+    //Create data from given input.
     public function create() 
     {
-      // Create query
       $query = 'INSERT INTO dataprocessing.hapinness SET country = :country, `rank` = :rank, `score`=:score, `GDP_per_capita` = :GPDperCapita, `social_support`= :socialSupport, `healthy_Life_expectancy`= :healthyLifeExpectancy, `freedom_to_make_life_choices` = :freedomToMakeChoices';
 
-      // Prepare statement
       $stmt = $this->conn->prepare($query);
 
-      // Clean data
+      //Clean data
       $this->country = htmlspecialchars(strip_tags($this->country));
       $this->rank = htmlspecialchars(strip_tags($this->rank));
       $this->score = htmlspecialchars(strip_tags($this->score));
@@ -65,7 +66,8 @@ Class PostHappiness{
       $this->socialSupport = htmlspecialchars(strip_tags($this->socialSupport));
       $this->healthLifeExperience = htmlspecialchars(strip_tags($this->healthLifeExperience));
       $this->freedomToMakeChoices = htmlspecialchars(strip_tags($this->freedomToMakeChoices));
-      // Bind data
+
+      //Bind data
       $stmt->bindParam(':country', $this->country);
       $stmt->bindParam(':rank', $this->rank);
       $stmt->bindParam(':score', $this->score);
@@ -74,18 +76,17 @@ Class PostHappiness{
       $stmt->bindParam(':healthyLifeExpectancy', $this->healthLifeExperience);
       $stmt->bindParam(':freedomToMakeChoices', $this->freedomToMakeChoices);
      
-      // Execute query
       if($stmt->execute()) 
       {
         return true;
       }
 
-      // Print error if something goes wrong
       printf("Error: %s.\n", $stmt->error);
 
       return false;
     }
 
+    //Delete given data from input
     public function delete() 
     {
 
@@ -93,32 +94,26 @@ Class PostHappiness{
 
       $stmt = $this->conn->prepare($query);
 
-      // Clean data
       $this->country = htmlspecialchars(strip_tags($this->country));
-      // Bind data
+
       $stmt->bindParam(':country', $this->country);
 
-      // Execute query
       if($stmt->execute()) 
       {
         return true;
       }
-
-      // Print error if something goes wrong
       printf("Error: %s.\n", $stmt->error);
 
       return false;
     }
 
+    //Update given data from input
     public function update() 
     {
-      // Create query
       $query = 'UPDATE dataprocessing.hapinness SET `Rank` = :rank, `Score` = :score, `GDP_per_capita` = :GPDperCapita, `social_support`= :socialSupport, `healthy_Life_expectancy`= :healthyLifeExpectancy, `freedom_to_make_life_choices` = :freedomToMakeChoices WHERE country = :country';
 
-      // Prepare statement
       $stmt = $this->conn->prepare($query);
 
-      // Clean data
       $this->country = htmlspecialchars(strip_tags($this->country));
       $this->rank = htmlspecialchars(strip_tags($this->rank));
       $this->score = htmlspecialchars(strip_tags($this->score));
@@ -127,7 +122,6 @@ Class PostHappiness{
       $this->healthLifeExperience = htmlspecialchars(strip_tags($this->healthLifeExperience));
       $this->freedomToMakeChoices = htmlspecialchars(strip_tags($this->freedomToMakeChoices));
 
-      // Bind data
       $stmt->bindParam(':country', $this->country);
       $stmt->bindParam(':rank', $this->rank);
       $stmt->bindParam(':score', $this->score);
@@ -136,14 +130,14 @@ Class PostHappiness{
       $stmt->bindParam(':healthyLifeExpectancy', $this->healthLifeExperience);
       $stmt->bindParam(':freedomToMakeChoices', $this->freedomToMakeChoices);
 
-      // Execute query
-      if($stmt->execute()) {
+      if($stmt->execute())
+      {
         return true;
       }
 
-      // Print error if something goes wrong
       printf("Error: %s.\n", $stmt->error);
 
       return false;
     }
-}
+  }
+?>

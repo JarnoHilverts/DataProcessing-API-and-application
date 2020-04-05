@@ -5,11 +5,11 @@
   header('Access-Control-Allow-Methods: DELETE');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
+  //Get raw data input
   $data = simplexml_load_file("php://input");
   $xmlpage = file_get_contents('php://input');
-  //print_r($xmlpage);
+  //Get xsd to check validation in validate.php
   $xmlSchema = '../XML_JSON_bestanden/Top50CountrySongs_xsd.xsd';
-  //var_dump($xml);
   if (validate_xml($xmlpage, $xmlSchema) == false)
   {
       echo "De huide XML is niet valid";
@@ -20,6 +20,7 @@
     $post->rank = $data->country[0]->data[0]['rank'];
 
     // Delete post
+    //New DOMdoc to output xml data 
     if($post->delete()) 
     {
       $doc = new DOMDocument('1');

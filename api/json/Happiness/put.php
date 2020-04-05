@@ -5,8 +5,10 @@
   header('Access-Control-Allow-Methods: PUT');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
+  //get raw data input
   $data = json_decode(file_get_contents("php://input"));
   $jsonpage = file_get_contents('php://input');
+  //get draft 07 to check validation in validate.php
   $jsonSchema = file_get_contents('../XML_JSON_bestanden/Happines_draft7.json');
   if (validate_json($jsonpage, $jsonSchema) == false)
   { 
@@ -36,3 +38,4 @@
       );
     }
   }
+?>

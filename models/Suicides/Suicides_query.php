@@ -1,7 +1,7 @@
 <?php
 Class PostSuicides{
     private $conn;
-
+    //Create public variables
     public $country;
     public $year;
     public $suicides;
@@ -12,6 +12,7 @@ Class PostSuicides{
       $this->conn = $db;
     }
 
+    //Read al data from database
     public function read() 
     {
         $query = 'SELECT `country`, `year`, `suicides`, `population` FROM dataprocessing.suicides';
@@ -23,6 +24,7 @@ Class PostSuicides{
         return $stmt;
     }
 
+    //Read data with given parameters from database
     public function read_single() 
     {
       //check welke values zijn gezet bij de URL
@@ -71,39 +73,34 @@ Class PostSuicides{
       }
     }
 
+    //Create data from given input.
     public function create() 
     {
-      // Create query
       $query = 'INSERT INTO dataprocessing.suicides SET country = :country, `year` = :year, suicides = :suicides, `population` = :population';
 
-      // Prepare statement
       $stmt = $this->conn->prepare($query);
 
-      // Clean data
       $this->country = htmlspecialchars(strip_tags($this->country));
       $this->year = htmlspecialchars(strip_tags($this->year));
       $this->suicides = htmlspecialchars(strip_tags($this->suicides));
       $this->population = htmlspecialchars(strip_tags($this->population));
 
-      // Bind data
       $stmt->bindParam(':country', $this->country);
       $stmt->bindParam(':year', $this->year);
       $stmt->bindParam(':suicides', $this->suicides);
       $stmt->bindParam(':population', $this->population);
 
-     
-      // Execute query
       if($stmt->execute()) 
       {
         return true;
       }
 
-      // Print error if something goes wrong
       printf("Error: %s.\n", $stmt->error);
 
       return false;
     }
 
+    //Delete given data from input
     public function delete() 
     {
 
@@ -111,53 +108,43 @@ Class PostSuicides{
 
       $stmt = $this->conn->prepare($query);
 
-      // Clean data
       $this->country = htmlspecialchars(strip_tags($this->country));
       $this->year = htmlspecialchars(strip_tags($this->year));
 
-      // Bind data
       $stmt->bindParam(':country', $this->country);
       $stmt->bindParam(':year', $this->year);
 
-      // Execute query
       if($stmt->execute()) 
       {
         return true;
       }
 
-      // Print error if something goes wrong
       printf("Error: %s.\n", $stmt->error);
 
       return false;
     }
 
+    //Update given data from input
     public function update() 
     {
-      // Create query
       $query = 'UPDATE dataprocessing.suicides SET suicides = :suicides, `population` = :population WHERE country = :country AND `year` = :year';
 
-      // Prepare statement
       $stmt = $this->conn->prepare($query);
 
-      // Clean data
       $this->country = htmlspecialchars(strip_tags($this->country));
       $this->year = htmlspecialchars(strip_tags($this->year));
       $this->suicides = htmlspecialchars(strip_tags($this->suicides));
       $this->population = htmlspecialchars(strip_tags($this->population));
       
-
-      // Bind data
       $stmt->bindParam(':suicides', $this->suicides);
       $stmt->bindParam(':population', $this->population);
       $stmt->bindParam(':country', $this->country);
       $stmt->bindParam(':year', $this->year);
 
-      // Execute query
       if($stmt->execute()) {
         return true;
       }
 
-      // Print error if something goes wrong
       printf("Error: %s.\n", $stmt->error);
 
       return false;

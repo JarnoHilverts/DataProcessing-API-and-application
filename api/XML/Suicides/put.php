@@ -5,13 +5,11 @@
   header('Access-Control-Allow-Methods: PUT');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
   
-  // Get raw posted data
+  //Get raw posted data
   $data = simplexml_load_file("php://input");
   $xmlpage = file_get_contents('php://input');
-  //print_r($xmlpage);
-  
+  //Get xsd to check validation in validate.php
   $xmlSchema = '../XML_JSON_bestanden/Suicide_template_xsd.xsd';
-  //var_dump($xml);
   if (validate_xml($xmlpage, $xmlSchema) == false)
   {
       echo "De huide XML is niet valid";
