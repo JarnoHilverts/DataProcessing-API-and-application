@@ -1,0 +1,45 @@
+{
+    "countries":
+    {
+        "country":
+        [
+            {
+                "name": "USA",
+                "data":
+                [
+                    {
+                        "title": "ROXANNE",
+                        "artist": "Arizona Zervas",
+                        "genre": "pop rap",
+                        "rank": 1
+                    },
+                    {
+                        "title": "Circles",
+                        "artist": "Post Malone",
+                        "genre": "dfw rap",
+                        "rank": 2
+                    }
+                ]
+                
+            },
+            {
+                "name": "Belgium",
+                "data":
+                [
+                    {
+                        "title": "Dance Monkey",
+                        "artist": "Tones and I",
+                        "genre": "australian pop",
+                        "rank": 1
+                    },
+                    {
+                        "title": "ROXANNE",
+                        "artist": "Arizona Zervas",
+                        "genre": "pop rap",
+                        "rank": 2
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<countries>
+    <country>
+        <name>USA</name>
+        <data year="2015">
+            <suicides>1234</suicides>
+            <population>12345</population>
+        </data>
+        <data year="2016">
+            <suicides>1234</suicides>
+            <population>12345</population>
+        </data>
+    </country>
+    <country>
+        <name>Belgium</name>
+        <data year="2015">
+            <suicides>1234</suicides>
+            <population>12345</population>
+        </data>
+        <data year="2016">
+            <suicides>1234</suicides>
+            <population>12345</population>
+        </data>
+    </country>
+</countries>
+
+

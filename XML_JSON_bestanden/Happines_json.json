@@ -1,0 +1,26 @@
+{
+    "countries":
+    {
+        "country":
+        [
+            {
+                "name": "USA",
+                "rank": 19,
+                "score": 6.89,
+                "GDPperCapita": 1.43,
+                "socialSupport": 1.46,
+                "healthLifeExperience": 0.87,
+                "FreedomToMakeChoices": 0.45
+            },
+            {
+                "name": "Belgium",
+                "rank": 18,
+                "score": 6.92,
+                "GDPperCapita": 1.36,
+                "socialSupport": 1.5,
+                "healthLifeExperience": 0.99,
+                "FreedomToMakeChoices": 0.47
+            }
+        ]
+    }
+}

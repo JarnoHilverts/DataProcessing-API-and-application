@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<countries>
+    <country>
+        <name>USA</name>
+        <data rank="1">
+            <title>ROXANNE</title>
+            <artist>Arizona Zervas</artist>
+            <genre>pop rap</genre>
+        </data>
+        <data rank="2">
+             <title>Circles</title>
+            <artist>Post Malone</artist>
+            <genre>dfw rap</genre>
+        </data>
+    </country>
+    <country>
+        <name>Belgium</name>
+        <data rank="1">
+            <title>Dance Monkey</title>
+            <artist>Tones and I</artist>
+            <genre>australian pop</genre>
+        </data>
+        <data rank="2">
+             <title>ROXANNE</title>
+            <artist>Arizona Zervas</artist>
+            <genre>pop rap</genre>
+        </data>
+    </country>
+</countries>

@@ -1,0 +1,36 @@
+{
+    "$id": "https://example.com/arrays.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "A representation countries",
+    "type": "object",
+    "properties": 
+    {
+        "countries":
+        {
+            "type": "object",
+            "properties": 
+            {
+                "country": 
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type":"object",
+                        "properties": 
+                        {
+                            "name": {"type": "string" }, 
+                            "rank": {"type": "number", "minimum": 1 },
+                            "score": {"type": "number", "minimum": 0 },
+                            "GDPperCapital": {"type": "number", "minimum": 0  },
+                            "socialSupport": {"type": "number", "minimum": 0 },
+                            "healthLifeExperience": {"type": "number", "minimum": 0 },
+                            "FreedomToMakeChoices": {"type": "number", "minimum": 0 }
+                        }
+                    } 
+                }
+            }   
+        }
+    }
+}
+    
+    

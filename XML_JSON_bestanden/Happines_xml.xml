@@ -1,0 +1,20 @@
+<countries>
+    <country>
+        <name>USA</name>
+        <rank>19</rank>
+        <score>6.89</score>
+        <GDPperCapita>1.43</GDPperCapita>
+        <socialSupport>1.46</socialSupport>
+        <healthLifeExperience>0.87</healthLifeExperience>
+        <FreedomToMakeChoices>0.45</FreedomToMakeChoices>
+    </country>
+    <country>
+        <name>Belgium</name>
+        <rank>18</rank>
+        <score>6.92</score>
+        <GDPperCapita>1.36</GDPperCapita>
+        <socialSupport>1.5</socialSupport>
+        <healthLifeExperience>0.99</healthLifeExperience>
+        <FreedomToMakeChoices>0.47</FreedomToMakeChoices>
+    </country>
+</countries>

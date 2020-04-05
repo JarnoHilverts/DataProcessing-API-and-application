@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="countries">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country" maxOccurs="unbounded" minOccurs="1" type="countryType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="countryType">
+        <xs:sequence>
+            <xs:element name="name" type="nameType"/>
+            <xs:element name="data" maxOccurs="unbounded" minOccurs="1" type="dataType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="dataType">
+        <xs:sequence>
+            <xs:element name="suicides" type="suicideType"/>
+            <xs:element name="population" type="populationType"/>
+        </xs:sequence>
+        <xs:attribute name="year" type="yearType" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="nameType">
+        <xs:restriction base= "xs:string">
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="suicideType">
+        <xs:restriction base= "xs:int">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="populationType">
+        <xs:restriction base= "xs:int">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="yearType">
+        <xs:restriction base= "xs:gYear">
+            <xs:pattern value="[1-9][0-9][0-9][0-9]"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+                

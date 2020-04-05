@@ -1,0 +1,41 @@
+{
+    "countries":
+    {
+        "country":
+        [
+            {
+                "name": "USA",
+                "data":
+                [
+                    {
+                        "suicides": 1234,
+                        "population": 12345,
+                        "year": 2015
+                    },
+                    {
+                        "suicides": 1234,
+                        "population": 12345,
+                        "year": 2016
+                    }
+                ]
+                
+            },
+            {
+                "name": "Belgium",
+                "data":
+                [
+                    {
+                        "suicides": 1234,
+                        "population": 12345,
+                        "year": 2015
+                    },
+                    {
+                        "suicides": 1234,
+                        "population": 12345,
+                        "year": 2016
+                    }
+                ]
+            }
+        ]
+    }
+}

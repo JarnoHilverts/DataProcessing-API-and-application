@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="countries">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country" maxOccurs="unbounded" type="countryType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="countryType">
+        <xs:sequence>
+            <xs:element name="name" type="nameType" maxOccurs="1"/>
+            <xs:element name="rank" type="rankType" maxOccurs="1"/>
+            <xs:element name="score" type="scoreType" maxOccurs="1"/>
+            <xs:element name="GDPperCapita" type="GPDType" maxOccurs="1"/>
+            <xs:element name="socialSupport" type="socialSupportType" maxOccurs="1"/>
+            <xs:element name="healthLifeExperience" type="healthLifeExperienceType" maxOccurs="1"/>
+            <xs:element name="FreedomToMakeChoices" type="FreedomToMakeChoicesType" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="nameType">
+        <xs:restriction base= "xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="rankType">
+        <xs:restriction base= "xs:int">
+            <xs:minInclusive value= "1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="scoreType">
+        <xs:restriction base= "xs:decimal">
+         <xs:minInclusive value= "0"/>
+          </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="GPDType">
+        <xs:restriction base= "xs:decimal">
+         <xs:minInclusive value= "0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="socialSupportType">
+        <xs:restriction base= "xs:decimal">
+         <xs:minInclusive value= "0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="healthLifeExperienceType">
+        <xs:restriction base= "xs:decimal">
+         <xs:minInclusive value= "0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="FreedomToMakeChoicesType">
+        <xs:restriction base= "xs:decimal">
+         <xs:minInclusive value= "0"/>
+        </xs:restriction>
+    </xs:simpleType>        
+</xs:schema>
