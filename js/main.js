@@ -236,21 +236,24 @@ function getTop50Songs(fileType, chosenCountry)
             var currentGenre = null;
             var cnt = 0;
             colorcount = 0;
-            for (x = 0; x < genreArr.length; x++) {
-            if (genreArr[x] != currentGenre) {
-                if (cnt > 0) {
-                    everyGenreArr.push(
-                    {
-                        x: currentGenre,
-                        value: "" + cnt + "",
-                        fill: colorArray[colorcount]
-                    });
-                    colorcount++
-                }
-                currentGenre = genreArr[x];
-                cnt = 1;
-            } 
-            else {
+            for (x = 0; x <= genreArr.length; x++) {
+                console.log(currentGenre);
+                if (genreArr[x] != currentGenre) 
+                {
+                    if (cnt > 0) {
+                        everyGenreArr.push(
+                        {
+                            x: currentGenre,
+                            value: "" + cnt + "",
+                            fill: colorArray[colorcount]
+                        });
+                        colorcount++
+                    }
+                    currentGenre = genreArr[x];
+                    cnt = 1;
+                } 
+                else 
+                {
                     cnt++;
                 }
             }
