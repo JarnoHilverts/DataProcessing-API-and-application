@@ -32,3 +32,6 @@
   Valide json en xml is terug tevinden in [DataProcessing-API-and-application](XML_JSON_bestanden)
   
 ## Instalatie
+Bij het installeren van deze API en applicatie is niet meer nodig dan xampp.  
+De Git hoeft alleen worden gecloned in de xampp map htdocs.
+
