@@ -1,5 +1,5 @@
 # Data Processing
-  Voor data processing moest een RESTful api worden gemaakt met daarbij een werkende applicatie.
+  Voor data processing moest een RESTful API worden gemaakt met daarbij een werkende applicatie.
   Er moest gebruik worden gemaakt van 3 datasets. Bij deze API is gekozen voor data over:  
   - Happiness 
   - Suicides
