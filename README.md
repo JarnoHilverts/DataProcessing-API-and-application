@@ -30,7 +30,10 @@
   Deze data wordt gevalideerd aan de hand van een xsd of draft7 schema.
   
   Valide json en xml is terug tevinden in [DataProcessing-API-and-application](XML_JSON_bestanden)
-  
+## Werking Applicatie
+De applicatie kan worden benaderd via de xampp waar de folder is geinstalleerd. Het is belangrijk dat er niet in de URL rechtstreeks naar het bestand wordt gegaan maar via de mappen structuur van xampp. Hierdoor kom er geen index.php in de URL te staan wanneer dit wel gebeurd zal de pagina niet goed werken. Wanneer dit wel gebeurd is het op te lossen door de index.php uit de URL te verwijderen  
+De APplicatie is een webpage waar data kan worden opgehaald van de API en worden verstuurd naar de API. Verdere instructies zijn op de pagina te vinden.
+
 ## Instalatie
 Bij het installeren van deze API en applicatie is niet meer nodig dan xampp.  
 De Git hoeft alleen worden gecloned in de xampp map htdocs.
