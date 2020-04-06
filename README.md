@@ -37,4 +37,5 @@ De APplicatie is een webpage waar data kan worden opgehaald van de API en worden
 ## Instalatie
 Bij het installeren van deze API en applicatie is niet meer nodig dan xampp.  
 De Git hoeft alleen worden gecloned in de xampp map htdocs.
+Dan moet de sql file worden geimporteerd in phpmyadmin en moet deze te benaderen zijn met username: root en password: ""
 
